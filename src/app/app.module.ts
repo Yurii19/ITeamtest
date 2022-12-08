@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 import {MatCardModule} from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {MatCardModule} from '@angular/material/card';
   ],
   imports: [
     BrowserModule,
-    MatCardModule
+    MatCardModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
