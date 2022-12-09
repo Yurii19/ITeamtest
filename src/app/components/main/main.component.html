@@ -22,22 +22,10 @@
     </mat-form-field>
   </form>
 </mat-expansion-panel>
-<!-- <mat-select
-      disableRipple
-      panelClass="select-panel"
-      [formControl]="limit"
-    >
-      <mat-option *ngFor="let currency of currencies" [value]="currency">{{
-        currency.name
-      }}</mat-option>
-    </mat-select> -->
-
-<!-- </mat-form-field> -->
-<!-- </mat-toolbar> -->
 
 <section class="section">
-  <mat-card class="card" *ngFor="let cat of cats">
-    <mat-card-content>{{ cat }}</mat-card-content>
-    <!-- <img src={{cat.url}} alt="" width="200" > -->
+  <mat-card class="card" *ngFor="let cat of cats$ | async">
+    <mat-card-content>{{ cat.id }}</mat-card-content>
+    <img src={{cat.url}} alt="" width="200" > 
   </mat-card>
 </section>

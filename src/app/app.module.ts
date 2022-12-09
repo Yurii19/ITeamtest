@@ -14,13 +14,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { catsReducer } from './store/store';
+import { EffectsModule } from '@ngrx/effects';
+import { CatsEffects } from './store/cats.effects';
 
 @NgModule({
   declarations: [AppComponent, MainComponent],
   imports: [
     BrowserModule,
     MatCardModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ cats: catsReducer }),
+    EffectsModule.forRoot([CatsEffects]),
     HttpClientModule,
     MatToolbarModule,
     MatSelectModule,
@@ -28,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatExpansionModule,BrowserAnimationsModule
+    MatExpansionModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
