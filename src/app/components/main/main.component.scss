@@ -1,0 +1,24 @@
+.head  {
+    border: 1px solid black;
+    // background-color: aquamarine;
+    span {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+  }
+
+  .card{
+    // border: 1px solid red;
+    // width: 400px;
+    // height: 400px ;
+     //overflow:hidden;
+    margin: 20px;
+    padding: 10px;
+    //b/order-radius: 30%;
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
