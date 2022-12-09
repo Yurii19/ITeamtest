@@ -9,3 +9,8 @@ export const selectCats = createSelector(
     selectCatsState,
     (state: ICatState) => state.catsSet
 ) 
+
+export const selectBreeds = createSelector(
+    selectCatsState,
+    (state: ICatState) => state.breedsSet
+) 

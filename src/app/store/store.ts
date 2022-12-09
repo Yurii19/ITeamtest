@@ -9,14 +9,15 @@ interface Action {
 export const initialCatsState: ICatState = {
   catsSet: [
     {
-      id: 'string',
+      id: '',
       width: 0,
       height: 0,
       url: 'https://img.freepik.com/premium-vector/cat-vector-kitten-calico-cartoon-character_71328-128.jpg?w=2000',
       breeds: [],
-      //favourite:{}
     },
   ],
+  breedsSet:[{name: 'addf', id:'asdf'}],
+  selectedBreed: {name: '',id:''}
 };
 
 export function catsReducer(state: ICatState = initialCatsState, action: any) {
@@ -29,21 +30,15 @@ export function catsReducer(state: ICatState = initialCatsState, action: any) {
       return {
         ...state, catsSet : action.data
       };
+      case 'getBreeds':
+        return {
+          ...state,
+        };
+      case 'setBreeds':
+        return {
+          ...state, breedsSet :[ {name: 'None', id: 'none'},...action.data ]
+        };
     default:
       return state;
   }
 }
-
-//export const addTask = createAction('addTask', props<{ task: ITask }>());
-// export const getCats = createAction('getCats', props<{ limit: number }>());
-// export const setCats = createAction('setCats', props<{data: any}>());
-
-// export const removeTask = createAction(
-//   'removeTask',
-//   props<{ taskId: Number }>()
-// );
-
-// export const markTaskAsDone = createAction(
-//   'markTaskAsDone',
-//   props<{ taskId: Number }>()
-// );

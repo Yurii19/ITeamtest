@@ -3,23 +3,40 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { map, mergeMap } from 'rxjs';
 import { CatsService } from '../cats.service';
-import { ICat } from '../interfaces';
-import { getCats, setCats } from './cats.actions';
+import { IBreed, ICat } from '../interfaces';
+import { getBreeds, getCats, setCats } from './cats.actions';
 
 @Injectable()
 export class CatsEffects {
-  constructor(private actions$: Actions, private catsService: CatsService) {
-    console.log(this.actions$);
-    this.actions$.subscribe((d) => console.log(d));
-  }
+  constructor(private actions$: Actions, private catsService: CatsService) {}
 
-  newControlsValues$ = createEffect((): any =>
+  newCatsSet$ = createEffect((): any =>
     this.actions$.pipe(
       ofType(getCats),
       mergeMap((action) =>
         this.catsService
           .getCats(action.limit)
           .pipe(map((data: ICat[]) => ({ type: 'setCats', data })))
+      )
+    )
+  );
+
+  breedsSet$ = createEffect((): any =>
+    this.actions$.pipe(
+      ofType(getBreeds),
+      mergeMap((action) =>
+        this.catsService.getBreeds(action.breed).pipe(
+          map((data: any) => {
+            const breeds: IBreed[] = data.map((breed: any) => ({
+              id: breed.id,
+              name: breed.name,
+            }));
+            return {
+              type: 'setBreeds',
+              data: breeds,
+            };
+          })
+        )
       )
     )
   );

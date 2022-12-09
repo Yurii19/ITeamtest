@@ -6,8 +6,16 @@ export interface ICat {
   breeds: [];
   //favourite:{}
 }
+
+export interface IBreed {
+  id: string;
+  name: string
+}
+
 export interface ICatState {
   catsSet: ICat[];
+  breedsSet: IBreed[],
+  selectedBreed:IBreed
 }
 
 export interface IAppState {
