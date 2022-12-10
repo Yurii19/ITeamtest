@@ -45,6 +45,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   getCatsBySelect(): void {
-    //this.store.dispatch(getCats({ filter: this.filters.value }));
+    this.store.dispatch(getCats({ filter: this.filters.value }));
   }
 }

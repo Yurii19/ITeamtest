@@ -34,7 +34,7 @@
 
 <section class="section">
   <mat-card class="card" *ngFor="let cat of cats$ | async">
-    <mat-card-content>Cat  </mat-card-content>
-    <img src="{{ cat.url }}" alt="" width="200" />
+    <mat-card-content><mat-icon fontIcon="image"></mat-icon> </mat-card-content>
+    <img src="{{ cat.url }}" alt="cat image" width="200" />
   </mat-card>
 </section>

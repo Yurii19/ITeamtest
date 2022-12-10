@@ -13,7 +13,6 @@ export class CatsService {
   constructor(private http: HttpClient) {}
 
   getCats(params: IFilter): any {
-    console.log(params);
     const breedQuery =
       params.breeds && params.breeds.id !== 'all_breeds'
         ? `breed_ids=${params.breeds.id}&`
