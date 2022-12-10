@@ -1,24 +1,22 @@
-.head  {
-    border: 1px solid black;
-    // background-color: aquamarine;
-    span {
-        margin-right: 20px;
-        margin-left: 20px;
-    }
+form {
+  .control {
+    margin-right: 10px;
   }
+}
+.card {
+  margin: 20px;
+  padding: 10px;
+}
 
-  .card{
-    // border: 1px solid red;
-    // width: 400px;
-    // height: 400px ;
-     //overflow:hidden;
-    margin: 20px;
-    padding: 10px;
-    //b/order-radius: 30%;
+.mat-expansion-panel-header-title {
+  opacity: 0.8;
+  .mat-icon {
+    margin-left: 15px;
   }
+}
 
-  .section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -21,7 +21,7 @@ export class CatsService {
     const url: string = `${this.BASE_URL}/images/search?${breedQuery}limit=${params.limit}&api_key=${this.API_KEY}`;
     return this.http.get(url);
   }
-  getBreeds(params: any = 'breeds'): any {
+  getBreeds(): any {
     return this.http.get(`${this.BASE_URL}/breeds`);
   }
 }

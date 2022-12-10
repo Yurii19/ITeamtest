@@ -15,7 +15,6 @@ export interface IBreed {
 export interface ICatState {
   catsSet: ICat[];
   breedsSet: IBreed[];
-  filters: IFilter;
 }
 
 export interface IFilter {
