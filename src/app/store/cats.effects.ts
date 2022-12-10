@@ -10,19 +10,21 @@ import { getBreeds, getCats, setCats } from './cats.actions';
 export class CatsEffects {
   constructor(private actions$: Actions, private catsService: CatsService) {}
 
-  newCatsSet$ = createEffect((): any =>
-    this.actions$.pipe(
+  newCatsSet$ = createEffect((): any => {
+    this.actions$.subscribe((d) => console.log(d));
+    return this.actions$.pipe(
       ofType(getCats),
       mergeMap((action) =>
         this.catsService
-          .getCats(action.limit)
+          .getCats(action.filter)
           .pipe(map((data: ICat[]) => ({ type: 'setCats', data })))
       )
-    )
-  );
+    );
+  });
 
-  breedsSet$ = createEffect((): any =>
-    this.actions$.pipe(
+  breedsSet$ = createEffect((): any => {
+    //this.actions$.subscribe(d => console.log(d))
+    return this.actions$.pipe(
       ofType(getBreeds),
       mergeMap((action) =>
         this.catsService.getBreeds(action.breed).pipe(
@@ -33,13 +35,13 @@ export class CatsEffects {
             }));
             return {
               type: 'setBreeds',
-              data: breeds,
+              data: [{ name: 'All breeds', id: 'all_breeds' }, ...breeds],
             };
           })
         )
       )
-    )
-  );
+    );
+  });
 
   //requestFilteredDiscounts$ = createEffect
   // requestFilteredDiscounts$ = createEffect(() =>

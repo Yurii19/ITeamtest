@@ -9,13 +9,18 @@ export interface ICat {
 
 export interface IBreed {
   id: string;
-  name: string
+  name: string;
 }
 
 export interface ICatState {
   catsSet: ICat[];
-  breedsSet: IBreed[],
-  selectedBreed:IBreed
+  breedsSet: IBreed[];
+  filters: IFilter;
+}
+
+export interface IFilter {
+  breeds: IBreed;
+  limit: number;
 }
 
 export interface IAppState {
