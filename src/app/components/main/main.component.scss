@@ -1,0 +1,22 @@
+form {
+  .control {
+    margin-right: 10px;
+  }
+}
+.card {
+  margin: 20px;
+  padding: 10px;
+}
+
+.mat-expansion-panel-header-title {
+  opacity: 0.8;
+  .mat-icon {
+    margin-left: 15px;
+  }
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
